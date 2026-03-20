@@ -1,27 +1,29 @@
 package com.example.gerenciamento_de_pedidos.Models;
 
 import jakarta.persistence.*;
-
-import javax.xml.crypto.Data;
 import java.math.BigDecimal;
-
+import java.time.LocalDateTime;
 @Entity
 @Table(name = "tb_pedido")
+
 public class PedidosModels {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "dataHora")
-    private Data localDataHora;
+    private LocalDateTime localDataHora;
+
     @Column(name = "totalValor")
-    private BigDecimal  valorTotal;
+    private BigDecimal valorTotal;
+
     private String status;
 
     public PedidosModels() {
     }
 
-    public PedidosModels(Data localDataHora, BigDecimal valorTotal, String status) {
+    public PedidosModels(LocalDateTime localDataHora, BigDecimal valorTotal, String status) {
         this.localDataHora = localDataHora;
         this.valorTotal = valorTotal;
         this.status = status;
@@ -31,11 +33,11 @@ public class PedidosModels {
         return id;
     }
 
-    public Data getLocalDataHora() {
+    public LocalDateTime getLocalDataHora() {
         return localDataHora;
     }
 
-    public void setLocalDataHora(Data localDataHora) {
+    public void setLocalDataHora(LocalDateTime localDataHora) {
         this.localDataHora = localDataHora;
     }
 
